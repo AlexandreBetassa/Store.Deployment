@@ -56,7 +56,7 @@ services:
       - app-network
 
   orders-api:
-    image: fatecstore/orders-api:202504121.1
+    image: fatecstore/orders-api:20250421.2
     container_name: orders-api
     ports:
       - "8083:8080"
