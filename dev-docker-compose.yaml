@@ -23,25 +23,25 @@ services:
     networks:
       - app-network
 
-  user-api:
-    image: fatecstore/user-api:20250406.1
-    container_name: user-api
-    ports:
-      - "8080:8080"
-    environment:
-      - AppsettingsConfigurations__EmailConfiguration__FromMail=fatec.store2025@gmail.com
-      - AppsettingsConfigurations__EmailConfiguration__FromMailPassword=lpsnyviaqvfzaywb
-      - AppsettingsConfigurations__JwtConfiguration__Audience=TesteAudience
-      - AppsettingsConfigurations__JwtConfiguration__Issuer=TesteIssuer
-      - AppsettingsConfigurations__JwtConfiguration__SecretJwtKey=YjA2Nzk0MmJjMTUyNDgyNThhY2NmOWNlNmZkMDg2NDFhdXRodGVzdGU=
-      - AppsettingsConfigurations__RedisConfiguration__ExpirationInMinutes=60
-      - AppsettingsConfigurations__RedisConfiguration__Server=redis:6379
-      - AppsettingsConfigurations__Database=Server=sqlserver,1433;Initial Catalog=Fatec.Store.User;User ID=SA;Password=*SQLestudo2024;Encrypt=False;TrustServerCertificate=False;Connection Timeout=30;
-    depends_on:
-      - sqlserver
-      - redis
-    networks:
-      - app-network
+  # user-api:
+  #   image: fatecstore/user-api:20250406.1
+  #   container_name: user-api
+  #   ports:
+  #     - "8080:8080"
+  #   environment:
+  #     - AppsettingsConfigurations__EmailConfiguration__FromMail=fatec.store2025@gmail.com
+  #     - AppsettingsConfigurations__EmailConfiguration__FromMailPassword=lpsnyviaqvfzaywb
+  #     - AppsettingsConfigurations__JwtConfiguration__Audience=TesteAudience
+  #     - AppsettingsConfigurations__JwtConfiguration__Issuer=TesteIssuer
+  #     - AppsettingsConfigurations__JwtConfiguration__SecretJwtKey=YjA2Nzk0MmJjMTUyNDgyNThhY2NmOWNlNmZkMDg2NDFhdXRodGVzdGU=
+  #     - AppsettingsConfigurations__RedisConfiguration__ExpirationInMinutes=60
+  #     - AppsettingsConfigurations__RedisConfiguration__Server=redis:6379
+  #     - AppsettingsConfigurations__Database=Server=sqlserver,1433;Initial Catalog=Fatec.Store.User;User ID=SA;Password=*SQLestudo2024;Encrypt=False;TrustServerCertificate=False;Connection Timeout=30;
+  #   depends_on:
+  #     - sqlserver
+  #     - redis
+  #   networks:
+  #     - app-network
 
   products-api:
     image: fatecstore/products-api:20250412.4
@@ -75,7 +75,7 @@ services:
     depends_on:
       - carts-api
       - products-api
-      - user-api
+      # - user-api
     networks:
       - app-network
 
