@@ -13,7 +13,7 @@ services:
       - app-network
 
   user-api:
-    image: fatecstore/user-api:20250426.2
+    image: fatecstore/user-api:20250426.1
     container_name: user-api
     ports:
       - "8080:8080"
