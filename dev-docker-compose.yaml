@@ -30,7 +30,7 @@ services:
       - "8080:8080"
     environment:
       - AppsettingsConfigurations__EmailConfiguration__FromMail=fatec.store2025@gmail.com
-      - AppsettingsConfigurations__EmailConfiguration__FromMailPassword=lpsnyviaqvfzaywb
+      - AppsettingsConfigurations__EmailConfiguration__FromMailPassword=gyrgxkerkjtfoyui
       - AppsettingsConfigurations__JwtConfiguration__Audience=TesteAudience
       - AppsettingsConfigurations__JwtConfiguration__Issuer=TesteIssuer
       - AppsettingsConfigurations__JwtConfiguration__SecretJwtKey=YjA2Nzk0MmJjMTUyNDgyNThhY2NmOWNlNmZkMDg2NDFhdXRodGVzdGU=
