@@ -1,6 +1,16 @@
-version: '3.8'
-
 services:
+  mysql:
+    image: mysql:latest
+    container_name: mysql_container
+    environment:
+      MYSQL_ROOT_PASSWORD: "*ProjetoEstudo2025"
+    ports:
+      - "3306:3306"
+    volumes:
+      - mysql_data:/var/lib/mysql
+    networks:
+      - app-network
+
   redis:
     image: redis:latest
     container_name: redis_container
@@ -13,7 +23,7 @@ services:
       - app-network
 
   user-api:
-    image: fatecstore/user-api:20250426.1
+    image: fatecstore/user-api:20250503.1
     container_name: user-api
     ports:
       - "8080:8080"
@@ -25,8 +35,9 @@ services:
       - AppsettingsConfigurations__JwtConfiguration__SecretJwtKey=YjA2Nzk0MmJjMTUyNDgyNThhY2NmOWNlNmZkMDg2NDFhdXRodGVzdGU=
       - AppsettingsConfigurations__RedisConfiguration__ExpirationInMinutes=60
       - AppsettingsConfigurations__RedisConfiguration__Server=redis:6379
-      - AppsettingsConfigurations__Database=Server=fatecstore.cdgy200a0n54.sa-east-1.rds.amazonaws.com,1433;Initial Catalog=Fatec.Store.Users;User ID=admin;Password=*SQLestudo2024;Encrypt=False;TrustServerCertificate=False;Connection Timeout=30;
+      - AppsettingsConfigurations__Database=server=mysql;port=3306;database=Fatec.Store.User;user=root;password=*ProjetoEstudo2025;AllowPublicKeyRetrieval=True;SslMode=None
     depends_on:
+      - mysql
       - redis
     networks:
       - app-network
