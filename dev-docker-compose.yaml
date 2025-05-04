@@ -23,7 +23,7 @@ services:
       - app-network
 
   user-api:
-    image: fatecstore/user-api:20250503.2
+    image: fatecstore/user-api:20250504.1
     container_name: user-api
     ports:
       - "8080:8080"
@@ -42,31 +42,31 @@ services:
     networks:
       - app-network
 
-  # products-api:
-  #   image: fatecstore/products-api:20250412.4
-  #   container_name: products-api
-  #   ports:
-  #     - "8081:8080"
-  #   environment:
-  #     - ConnectionStrings__DefaultConnection=Server=sqlserver,1433;Initial Catalog=Fatec.Store.Products;User ID=SA;Password=*SQLestudo2024;Encrypt=False;TrustServerCertificate=False;Connection Timeout=30;
-  #   depends_on:
-  #     - sqlserver
-  #     - redis
-  #   networks:
-  #     - app-network
+  products-api:
+    image: fatecstore/products-api:202500504.1
+    container_name: products-api
+    ports:
+      - "8081:8080"
+    environment:
+      - ConnectionStrings__DefaultConnection=server=mysql;port=3306;database=Fatec.Store.Products;user=root;password=*ProjetoEstudo2025;AllowPublicKeyRetrieval=True;SslMode=None
+    depends_on:
+      - mysql
+      - redis
+    networks:
+      - app-network
 
-  # carts-api:
-  #   image: fatecstore/carts-api:20250412.4
-  #   container_name: carts-api
-  #   ports:
-  #     - "8082:8080"
-  #   environment:
-  #     - ConnectionStrings__DefaultConnection=Server=sqlserver,1433;Initial Catalog=Fatec.Store.Carts;User ID=SA;Password=*SQLestudo2024;Encrypt=False;TrustServerCertificate=False;Connection Timeout=30;
-  #   depends_on:
-  #     - sqlserver
-  #     - redis
-  #   networks:
-  #     - app-network
+  carts-api:
+    image: fatecstore/carts-api:20250504.1
+    container_name: carts-api
+    ports:
+      - "8082:8080"
+    environment:
+      - ConnectionStrings__DefaultConnection=server=mysql;port=3306;database=Fatec.Store.Carts;user=root;password=*ProjetoEstudo2025;AllowPublicKeyRetrieval=True;SslMode=None
+    depends_on:
+      - mysql
+      - redis
+    networks:
+      - app-network
 
   orders-api:
     image: fatecstore/orders-api:20250503.1
@@ -87,29 +87,29 @@ services:
     networks:
       - app-network
 
-  # coupon-api:
-  #   image: fatecstore/coupon-api:20250501.1
-  #   container_name: coupon-api
-  #   ports:
-  #     - "8084:8080"
-  #   environment:
-  #     - ConnectionStrings__DefaultConnection=Server=sqlserver,1433;Initial Catalog=Fatec.Store.Coupon;User ID=SA;Password=*SQLestudo2024;Encrypt=False;TrustServerCertificate=False;Connection Timeout=30;
-  #   depends_on:
-  #     - redis
-  #     - sqlserver
-  #   networks:
-  #     - app-network
+  coupon-api:
+    image: fatecstore/coupon-api:20250504.1
+    container_name: coupon-api
+    ports:
+      - "8084:8080"
+    environment:
+      - ConnectionStrings__DefaultConnection=Server=sqlserver,1433;Initial Catalog=Fatec.Store.Coupons;User ID=SA;Password=*SQLestudo2024;Encrypt=False;TrustServerCertificate=False;Connection Timeout=30;
+    depends_on:
+      - redis
+      - mysql
+    networks:
+      - app-network
 
   store-web:
-    image: fatecstore/web:20250427.1
+    image: fatecstore/web:20250504.1
     container_name: store-web
     ports:
       - 80:80
     depends_on:
-      # - carts-api
-      # - products-api
+      - carts-api
+      - products-api
       - user-api
-      # - coupon-api
+      - coupon-api
       - orders-api
     networks:
       - app-network

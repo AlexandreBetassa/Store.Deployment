@@ -1,6 +1,6 @@
 services:
   user-api:
-    image: fatecstore/user-api:20250503.2
+    image: fatecstore/user-api:20250504.1
     container_name: user-api
     ports:
       - "8080:8080"
@@ -22,17 +22,17 @@ services:
     ports:
       - "8081:8080"
     environment:
-      - ConnectionStrings__DefaultConnection=Server=fatecstore.cdgy200a0n54.sa-east-1.rds.amazonaws.com,1433;Initial Catalog=Fatec.Store.Products;User ID=admin;Password=*SQLestudo2024;Encrypt=False;TrustServerCertificate=False;Connection Timeout=30;
+      - ConnectionStrings__DefaultConnection=server=56.124.55.210;port=3306;database=Fatec.Store.Products;user=root;password=*ProjetoEstudo2025;AllowPublicKeyRetrieval=True;SslMode=None
     networks:
       - app-network
 
   carts-api:
-    image: fatecstore/carts-api:20250421.1
+    image: fatecstore/carts-api:20250504.1
     container_name: carts-api
     ports:
       - "8082:8080"
     environment:
-      - ConnectionStrings__DefaultConnection=Server=fatecstore.cdgy200a0n54.sa-east-1.rds.amazonaws.com,1433;Initial Catalog=Fatec.Store.Carts;User ID=admin;Password=*SQLestudo2024;Encrypt=False;TrustServerCertificate=False;Connection Timeout=30;
+      - ConnectionStrings__DefaultConnection=server=56.124.55.210;port=3306;database=Fatec.Store.Carts;user=root;password=*ProjetoEstudo2025;AllowPublicKeyRetrieval=True;SslMode=None
     networks:
       - app-network
 
@@ -53,17 +53,17 @@ services:
       - app-network
 
   coupon-api:
-    image: fatecstore/coupon-api:202504126.6
+    image: fatecstore/coupon-api:20250504.1
     container_name: coupon-api
     ports:
       - "8084:8080"
     environment:
-      - ConnectionStrings__DefaultConnection=Server=fatecstore.cdgy200a0n54.sa-east-1.rds.amazonaws.com,1433;Initial Catalog=Fatec.Store.Coupon;User ID=admin;Password=*SQLestudo2024;Encrypt=False;TrustServerCertificate=False;Connection Timeout=30;
+      - ConnectionStrings__DefaultConnection=server=56.124.55.210;port=3306;database=Fatec.Store.Coupons;user=root;password=*ProjetoEstudo2025;AllowPublicKeyRetrieval=True;SslMode=None
     networks:
       - app-network
 
   store-web:
-    image: fatecstore/web:20250503.1
+    image: fatecstore/web:20250504.1
     container_name: store-web
     ports:
       - 80:80
