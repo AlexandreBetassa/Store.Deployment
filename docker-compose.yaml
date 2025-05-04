@@ -37,7 +37,7 @@ services:
       - app-network
 
   orders-api:
-    image: fatecstore/orders-api:20250427.1
+    image: fatecstore/orders-api:20250503.1
     container_name: orders-api
     ports:
       - "8083:8080"
@@ -45,7 +45,7 @@ services:
       - AppsettingsConfigurations__JwtConfiguration__Audience=TesteAudience
       - AppsettingsConfigurations__JwtConfiguration__Issuer=TesteIssuer
       - AppsettingsConfigurations__JwtConfiguration__SecretJwtKey=YjA2Nzk0MmJjMTUyNDgyNThhY2NmOWNlNmZkMDg2NDFhdXRodGVzdGU=
-      - AppsettingsConfigurations__Database=Server=fatecstore.cdgy200a0n54.sa-east-1.rds.amazonaws.com,1433;Initial Catalog=Fatec.Store.Orders;User ID=admin;Password=*SQLestudo2024;Encrypt=False;TrustServerCertificate=False;Connection Timeout=30;
+      - AppsettingsConfigurations__Database=server=56.124.55.210;port=3306;database=Fatec.Store.Orders;user=root;password=*ProjetoEstudo2025;AllowPublicKeyRetrieval=True;SslMode=None
       - AppsettingsConfigurations__ServiceClients__ViaCep=https://viacep.com.br/ws/{0}/json
       - AppsettingsConfigurations__ServiceClients__Coupon=http://coupon-api:8080/api/coupon
       - AppsettingsConfigurations__ServiceClients__Products=http://products-api:8080/api/Products
