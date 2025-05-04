@@ -111,6 +111,7 @@ services:
       - app-network
 
 volumes:
+  mysql_data:
   redis_data:
 
 networks:
