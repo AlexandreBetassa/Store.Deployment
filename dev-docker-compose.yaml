@@ -88,7 +88,7 @@ services:
       - app-network
 
   coupon-api:
-    image: fatecstore/coupon-api:20250504.1
+    image: fatecstore/coupon-api:20250504.4
     container_name: coupon-api
     ports:
       - "8084:8080"
@@ -101,7 +101,7 @@ services:
       - app-network
 
   store-web:
-    image: fatecstore/web:20250504.1
+    image: fatecstore/web:20250504.2
     container_name: store-web
     ports:
       - 80:80
