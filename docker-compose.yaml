@@ -27,7 +27,7 @@ services:
       - app-network
 
   carts-api:
-    image: fatecstore/carts-api:20250516.1
+    image: fatecstore/carts-api:20250518.1
     container_name: carts-api
     ports:
       - "8082:8080"
@@ -53,7 +53,7 @@ services:
       - app-network
 
   discount-api:
-    image: fatecstore/discount-api:20250518.1
+    image: fatecstore/discount-api:20250516.1
     container_name: discount-api
     ports:
       - "8084:8080"
