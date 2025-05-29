@@ -66,7 +66,7 @@ services:
       - app-network
 
   store-web:
-    image: fatecstore/web:20250518.2
+    image: fatecstore/web:20250528.1
     container_name: store-web
     ports:
       - 80:80
