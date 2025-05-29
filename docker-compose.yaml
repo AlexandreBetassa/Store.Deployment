@@ -45,32 +45,10 @@ services:
     ports:
       - "8083:8080"
     environment:
-      - AppsettingsConfigurations__PaymentsConfiguration__FormsOfPaymentsAllowed__0=pix
-      - AppsettingsConfigurations__PaymentsConfiguration__FormsOfPaymentsAllowed__1=cartao
-      - AppsettingsConfigurations__PaymentsConfiguration__PaymentsMethodsCardAllowed__0=credito
-      - AppsettingsConfigurations__PaymentsConfiguration__PaymentsMethodsCardAllowed__1=debito
-      - AppsettingsConfigurations__PaymentsConfiguration__InstallmentOptions__0=1
-      - AppsettingsConfigurations__PaymentsConfiguration__InstallmentOptions__1=2
-      - AppsettingsConfigurations__PaymentsConfiguration__InstallmentOptions__2=3
-      - AppsettingsConfigurations__PaymentsConfiguration__InstallmentOptions__3=4
-      - AppsettingsConfigurations__PaymentsConfiguration__InstallmentOptions__4=5
-      - AppsettingsConfigurations__PaymentsConfiguration__InstallmentOptions__5=6
-      - AppsettingsConfigurations__PaymentsConfiguration__InstallmentOptions__6=7
-      - AppsettingsConfigurations__PaymentsConfiguration__InstallmentOptions__7=8
-      - AppsettingsConfigurations__PaymentsConfiguration__InstallmentOptions__8=9
-      - AppsettingsConfigurations__PaymentsConfiguration__InstallmentOptions__9=10
-      - AppsettingsConfigurations__PaymentsConfiguration__PixConfiguration__PixKey=alexandre.betassa.souza@hotmail.com
-      - AppsettingsConfigurations__PaymentsConfiguration__PixConfiguration__Description=Fatec Store
-      - AppsettingsConfigurations__PaymentsConfiguration__PixConfiguration__City=Taquaritinga-SP
-      - AppsettingsConfigurations__PaymentsConfiguration__PixConfiguration__TxId=Pagamento
       - AppsettingsConfigurations__JwtConfiguration__Audience=TesteAudience
       - AppsettingsConfigurations__JwtConfiguration__Issuer=TesteIssuer
-      - AppsettingsConfigurations__JwtConfiguration__SecretJwtKey=YjA2...
+      - AppsettingsConfigurations__JwtConfiguration__SecretJwtKey=YjA2Nzk0MmJjMTUyNDgyNThhY2NmOWNlNmZkMDg2NDFhdXRodGVzdGU
       - AppsettingsConfigurations__JwtConfiguration__ExpirationInMinutes=60
-      - AppsettingsConfigurations__JwtConfiguration__WriteRoles__0=User
-      - AppsettingsConfigurations__JwtConfiguration__WriteRoles__1=Admin
-      - AppsettingsConfigurations__JwtConfiguration__ReadRoles__0=User
-      - AppsettingsConfigurations__JwtConfiguration__ReadRoles__1=Admin
       - AppsettingsConfigurations__Database=server=56.124.55.210;port=3306;database=Fatec.Store.Orders;user=root;password=*ProjetoEstudo2025;AllowPublicKeyRetrieval=True;SslMode=None
       - AppsettingsConfigurations__ServiceClients__ViaCep=https://viacep.com.br/ws/{0}/json
       - AppsettingsConfigurations__ServiceClients__Coupon=http://discount-api:8080/api/coupons
