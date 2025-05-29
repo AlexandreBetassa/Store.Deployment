@@ -1,12 +1,13 @@
 services:
   user-api:
-    image: fatecstore/user-api:20250514.1
+    image: fatecstore/user-api:20250528.1
     container_name: user-api
     ports:
       - "8080:8080"
     environment:
+      - AppsettingsConfigurations__ServiceClients__Cart=http://carts-api:8080/api/carts
       - AppsettingsConfigurations__EmailConfiguration__FromMail=fatec.store2025@gmail.com
-      - AppsettingsConfigurations__EmailConfiguration__FromMailPassword=rokynqfysxtlqtsl
+      - AppsettingsConfigurations__EmailConfiguration__FromMailPassword=kdtgrztjtssiylac
       - AppsettingsConfigurations__JwtConfiguration__Audience=TesteAudience
       - AppsettingsConfigurations__JwtConfiguration__Issuer=TesteIssuer
       - AppsettingsConfigurations__JwtConfiguration__SecretJwtKey=YjA2Nzk0MmJjMTUyNDgyNThhY2NmOWNlNmZkMDg2NDFhdXRodGVzdGU=
@@ -15,9 +16,11 @@ services:
       - AppsettingsConfigurations__Database=server=56.124.55.210;port=3306;database=Fatec.Store.User;user=root;password=*ProjetoEstudo2025;AllowPublicKeyRetrieval=True;SslMode=None
     networks:
       - app-network
+    depends_on:
+      - carts-api
 
   products-api:
-    image: fatecstore/products-api:20250516.1
+    image: fatecstore/products-api:20250528.1
     container_name: products-api
     ports:
       - "8081:8080"
@@ -27,7 +30,7 @@ services:
       - app-network
 
   carts-api:
-    image: fatecstore/carts-api:20250518.2
+    image: fatecstore/carts-api:20250528.1
     container_name: carts-api
     ports:
       - "8082:8080"
@@ -37,7 +40,7 @@ services:
       - app-network
 
   orders-api:
-    image: fatecstore/orders-api:20250516.1
+    image: fatecstore/orders-api:20250528.1
     container_name: orders-api
     ports:
       - "8083:8080"
@@ -47,13 +50,16 @@ services:
       - AppsettingsConfigurations__JwtConfiguration__SecretJwtKey=YjA2Nzk0MmJjMTUyNDgyNThhY2NmOWNlNmZkMDg2NDFhdXRodGVzdGU=
       - AppsettingsConfigurations__Database=server=56.124.55.210;port=3306;database=Fatec.Store.Orders;user=root;password=*ProjetoEstudo2025;AllowPublicKeyRetrieval=True;SslMode=None
       - AppsettingsConfigurations__ServiceClients__ViaCep=https://viacep.com.br/ws/{0}/json
-      - AppsettingsConfigurations__ServiceClients__Coupon=http://discount-api:8080/api/coupon
-      - AppsettingsConfigurations__ServiceClients__Products=http://products-api:8080/api/Products
+      - AppsettingsConfigurations__ServiceClients__Coupon=http://discount-api:8080/api/coupons
+      - AppsettingsConfigurations__ServiceClients__Products=http://products-api:8080/api/products
     networks:
       - app-network
+    depends_on:
+      - products-api
+      - discount-api
 
   discount-api:
-    image: fatecstore/discount-api:20250516.1
+    image: fatecstore/discount-api:20250528.1
     container_name: discount-api
     ports:
       - "8084:8080"
