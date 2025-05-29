@@ -45,10 +45,6 @@ services:
     ports:
       - "8083:8080"
     environment:
-      - AppsettingsConfigurations__JwtConfiguration__Audience=TesteAudience
-      - AppsettingsConfigurations__JwtConfiguration__Issuer=TesteIssuer
-      - AppsettingsConfigurations__JwtConfiguration__SecretJwtKey=YjA2Nzk0MmJjMTUyNDgyNThhY2NmOWNlNmZkMDg2NDFhdXRodGVzdGU
-      - AppsettingsConfigurations__JwtConfiguration__ExpirationInMinutes=60
       - AppsettingsConfigurations__Database=server=56.124.55.210;port=3306;database=Fatec.Store.Orders;user=root;password=*ProjetoEstudo2025;AllowPublicKeyRetrieval=True;SslMode=None
       - AppsettingsConfigurations__ServiceClients__ViaCep=https://viacep.com.br/ws/{0}/json
       - AppsettingsConfigurations__ServiceClients__Coupon=http://discount-api:8080/api/coupons
