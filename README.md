@@ -9,11 +9,8 @@ Possui a responsabilidade de efetuar os deploys do projeto desenvolvido para ent
  - Aplicação WEB
 
 ## Tecnologias e padrões
- - C# - .NET8.0
- - Entity Framework
- - MySQL
- - Generic Repository
- - CQRS
+ - Docker
+ - Docker-compose
 
 ## Em desenvolvimento
 
