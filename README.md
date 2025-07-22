@@ -8,6 +8,8 @@ Possui a responsabilidade de efetuar os deploys do projeto desenvolvido para ent
  - Produtos: Gerenciar produtos cadastrados
  - Aplicação WEB
 
+Os deploys era feitos a cada final de sprint em máquinas virtuais hospedadas na AWS.
+
 ## Tecnologias e padrões
  - Docker
  - Docker-compose
